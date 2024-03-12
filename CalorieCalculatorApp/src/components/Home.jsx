@@ -27,12 +27,12 @@ const Home = ({selectedFoodItems, setSelectedFoodItems}) => {
             <div className={'home_container'}>
 
                 <div>
-                    <h3>
+                    <h2>
                         Блюда
-                    </h3>
-                    {foodItems.map((item, key = item.id) =>
+                    </h2>
+                    {foodItems.map((item) =>
                         <FoodItem foodItem={item} selectedFoodItems={selectedFoodItems}
-                        setSelectedFoodItems={setSelectedFoodItems}/>)}
+                        setSelectedFoodItems={setSelectedFoodItems} key={item.id}/>)}
                 </div>
                 <div>
                     <CalculatorForm

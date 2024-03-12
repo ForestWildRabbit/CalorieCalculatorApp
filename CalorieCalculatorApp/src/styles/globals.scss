@@ -26,7 +26,7 @@ form{
     justify-content: center;
 }
 
-input[type='text'], input[type='submit']{
+input[type='text'].calculator, input[type='submit'].calculator{
     min-width: 100px;
     min-height: 20px;
     max-width: 140px;
@@ -48,7 +48,7 @@ input[type='text'], input[type='submit']{
 
 }
 
-input[type='submit']{
+input[type='submit'].calculator{
     min-width: 200px;
     min-height: 40px;
     transition: opacity 0.5s ease-in-out;
@@ -146,7 +146,7 @@ a, .link{
     background-color: #555555;
     border-radius: 4px;
     width: auto;
-    max-width: 600px;
+    max-width: 500px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -160,6 +160,10 @@ a, .link{
 
 .button-add-to-basket{
     margin-top: 16px;
+    transition: 0.4s;
+    &:active{
+        opacity: 0.8;
+    }
 }
 
 .home_container{
@@ -168,4 +172,47 @@ a, .link{
     justify-content: space-between;
     align-items: self-start;
     margin: 4px;
+}
+
+.address_input{
+    min-width: 480px;
+    min-height: 36px;
+    margin: 4px;
+    padding: 4px;
+    text-align: center;
+    color: $form_text_color;
+    font-size: $form_font-size + 4px;
+    border-radius: 4px;
+}
+
+.address_label{
+    font-size: $form_font-size + 4px;
+}
+
+.order_button{
+    margin: 4px;
+    padding: 4px;
+    text-align: center;
+    color: $form_text_color;
+    font-size: $form_font-size + 4px;
+    min-width: 360px;
+    min-height: 44px;
+    transition: 0.5s;
+    opacity: 1;
+
+    &:hover{
+        opacity: 0.8;
+    }
+
+    @include border_mixin($border_color: #444444);
+    border-radius: 8px;
+    &:focus{
+        @include border_mixin($border_color: #777777);
+        outline: none;
+    }
+}
+
+.success_order{
+    color: green;
+    font-size: $form_font-size + 4px;
 }

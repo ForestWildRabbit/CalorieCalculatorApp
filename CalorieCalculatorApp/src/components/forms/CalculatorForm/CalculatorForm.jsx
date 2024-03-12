@@ -69,7 +69,8 @@ const CalculatorForm = ({
                     <div className={'flex_container_horizontal_item'}>
                         <div className={'flex_container_vertical'}>
                             <label htmlFor={'age'}>Возраст</label>
-                            <input type={"text"} placeholder={"0"} id={'age'} onChange={handleOnChangeAge}/>
+                            <input type={"text"} className={'calculator'}
+                                   placeholder={"0"} id={'age'} onChange={handleOnChangeAge}/>
                         </div>
 
                     </div>
@@ -77,14 +78,16 @@ const CalculatorForm = ({
                     <div className={'flex_container_horizontal_item'}>
                         <div className={'flex_container_vertical'}>
                             <label htmlFor={'height'}>Рост</label>
-                            <input type={"text"} placeholder={"0"} id={'height'} onChange={handleOnChangeHeight}/>
+                            <input type={"text"} className={'calculator'}
+                                   placeholder={"0"} id={'height'} onChange={handleOnChangeHeight}/>
                         </div>
                     </div>
 
                     <div className={'flex_container_horizontal_item'}>
                         <div className={'flex_container_vertical'}>
                             <label htmlFor={'weight'}>Вес</label>
-                            <input type={"text"} placeholder={"0"} id={'weight'} onChange={handleOnChangeWeight}/>
+                            <input type={"text"} className={'calculator'}
+                                   placeholder={"0"} id={'weight'} onChange={handleOnChangeWeight}/>
                         </div>
                     </div>
                 </div>
@@ -162,7 +165,7 @@ const CalculatorForm = ({
                 </div>
 
                 <div className={'flex_container_horizontal'}>
-                    <input type={'submit'} value={'Рассчитать'}/>
+                    <input type={'submit'} className={'calculator'}  value={'Рассчитать'}/>
                 </div>
 
             </form>
