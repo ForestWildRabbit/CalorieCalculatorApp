@@ -1,14 +1,23 @@
 import React, {useState} from 'react';
 import Header from "./Header.jsx";
-import {foodItems} from "./food-items/food-items.js";
 import SelectedFoodItem from "./SelectedFoodItem.jsx";
 
-const Basket = ({selectedFoodItems, setSelectedFoodItems}) => {
+const Basket = ({selectedFoodItems, setSelectedFoodItems, orders, setOrders}) => {
     const [ordered, setOrdered] = useState(false);
-    console.log(selectedFoodItems);
+    const [address, setAddress] = useState('');
+
     const makeOrder = e => {
         e.preventDefault();
         setOrdered(true);
+        setOrders([
+            ...orders,
+            {
+                id: orders.length + 1,
+                items: selectedFoodItems,
+                address: address,
+            },
+        ]);
+        setTimeout(setSelectedFoodItems, 4000, []);   // clear basket after making order
     }
     return (
         <>
@@ -18,17 +27,20 @@ const Basket = ({selectedFoodItems, setSelectedFoodItems}) => {
                 ?
                 <div className={'flex_container_vertical'}>
 
-                    <h2>Заказ</h2>
-                    {selectedFoodItems.map((selectedFoodItem, key = selectedFoodItem.id) =>
+                    <h2>Текущий заказ</h2>
+                    {selectedFoodItems.map((selectedFoodItem) =>
                         <SelectedFoodItem selectedFoodItem={selectedFoodItem}
                                           selectedFoodItems={selectedFoodItems}
-                                          setSelectedFoodItems={setSelectedFoodItems}/>)}
+                                          setSelectedFoodItems={setSelectedFoodItems}
+                                          key={selectedFoodItem.id}
+                        />)}
 
                     <div className={'flex_container_vertical'}>
                         <label htmlFor={'address'}
                                className={'flex_container_horizontal_item address_label'}>Адрес</label>
                         <input type={"text"} className={'address_input'}
-                               placeholder={'адрес доставки'} id={'address'}/>
+                               placeholder={'адрес доставки'} id={'address'}
+                               onChange={(e) => setAddress(e.target.value)}/>
                     </div>
 
                     <div className={'flex_container_horizontal'}>
@@ -38,7 +50,7 @@ const Basket = ({selectedFoodItems, setSelectedFoodItems}) => {
                     {ordered ? <div className={'success_order'}>Заказ оформлен</div> : <></>}
 
                 </div>
-                : <div>Корзина пуста</div>}
+                : <h2>Корзина пуста</h2>}
 
 
         </>

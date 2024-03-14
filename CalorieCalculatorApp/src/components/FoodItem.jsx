@@ -1,7 +1,23 @@
 import {FoodItem as FoodItemClass} from "./food-items/food-items.js";
+import {useState} from "react";
+
+const createAddToBasketLabel = (x) => {
+    if (x === 1){
+        return 'Добавлено в корзину';
+    }
+    else{
+        return `Добавлено в корзину (${x})`
+    }
+}
 const FoodItem = ({foodItem, selectedFoodItems, setSelectedFoodItems}) => {
 
+    const [addToBasketLabel, setAddToBasketLabel] = useState(' ');
+    const [itemCount, setItemCount] = useState(1);
+
     const handleAddToBasket = () => {
+        setAddToBasketLabel(createAddToBasketLabel(itemCount));
+        setItemCount(prevState => prevState + 1);
+        console.log(itemCount);
 
         setSelectedFoodItems(selectedFoodItems => ([
             ...selectedFoodItems,
@@ -24,6 +40,9 @@ const FoodItem = ({foodItem, selectedFoodItems, setSelectedFoodItems}) => {
                                 onClick={() => handleAddToBasket()}>
                             Добавить в корзину
                         </button>
+                    </div>
+                    <div className={'success_add_to_basket'}>
+                        {addToBasketLabel}
                     </div>
                 </div>
             </div>

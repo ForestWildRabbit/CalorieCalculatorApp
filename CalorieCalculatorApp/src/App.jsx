@@ -10,6 +10,8 @@ function App() {
 
     const [selectedFoodItems, setSelectedFoodItems] = useState([]);
 
+    const [orders, setOrders] = useState([]);
+
     return (
         <>
             <BrowserRouter>
@@ -20,11 +22,12 @@ function App() {
                     </Route>
 
                     <Route path="/basket" element={
-                        <Basket selectedFoodItems={selectedFoodItems} setSelectedFoodItems={setSelectedFoodItems}/>}>
+                        <Basket selectedFoodItems={selectedFoodItems} setSelectedFoodItems={setSelectedFoodItems}
+                        orders={orders} setOrders={setOrders}/>}>
 
                     </Route>
 
-                    <Route path="/account" element={<Account />}></Route>
+                    <Route path="/account" element={<Account orders={orders}/>}></Route>
                 </Routes>
             </BrowserRouter>
         </>
