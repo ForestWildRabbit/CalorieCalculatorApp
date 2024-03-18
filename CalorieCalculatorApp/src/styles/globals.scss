@@ -162,7 +162,7 @@ a, .link{
     margin-top: 16px;
     transition: 0.4s;
     &:active{
-        opacity: 0.8;
+        opacity: 0.6;
     }
 }
 
@@ -204,6 +204,10 @@ a, .link{
         opacity: 0.8;
     }
 
+    &:active{
+        background-color: #555555;
+    }
+
     @include border_mixin($border_color: #444444);
     border-radius: 8px;
     &:focus{
@@ -240,4 +244,15 @@ a, .link{
     align-items: center;
     margin: 4px;
     font-size: $form-font-size + 4px;
+    background-color: #444444;
+    border-radius: 4px;
+}
+
+textarea{
+    padding: 4px 12px 4px 12px;
+    font-size: $form_font-size + 2px;
+}
+
+div.order_container{
+    margin-top: 24px;
 }
