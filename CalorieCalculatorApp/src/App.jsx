@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Account from "./components/Account.jsx";
 import Basket from "./components/Basket.jsx";
 import {useState} from "react";
+import HelpForm from "./components/forms/HelpForm.jsx";
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
                         orders={orders} setOrders={setOrders}/>}>
 
                     </Route>
+
+                    <Route path="/help" element={<HelpForm/>}></Route>
 
                     <Route path="/account" element={<Account orders={orders}/>}></Route>
                 </Routes>

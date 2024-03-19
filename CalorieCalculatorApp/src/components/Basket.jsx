@@ -5,6 +5,7 @@ import SelectedFoodItem from "./SelectedFoodItem.jsx";
 const Basket = ({selectedFoodItems, setSelectedFoodItems, orders, setOrders}) => {
     const [ordered, setOrdered] = useState(false);
     const [address, setAddress] = useState('');
+    const [deliveryTime, setDeliveryTime] = useState('');
 
     const makeOrder = e => {
         e.preventDefault();
@@ -15,6 +16,7 @@ const Basket = ({selectedFoodItems, setSelectedFoodItems, orders, setOrders}) =>
                 id: orders.length + 1,
                 items: selectedFoodItems,
                 address: address,
+                deliveryTime: deliveryTime,
             },
         ]);
         setTimeout(setSelectedFoodItems, 4000, []);   // clear basket after making order
@@ -38,9 +40,17 @@ const Basket = ({selectedFoodItems, setSelectedFoodItems, orders, setOrders}) =>
                     <div className={'flex_container_vertical'}>
                         <label htmlFor={'address'}
                                className={'flex_container_horizontal_item address_label'}>Адрес</label>
-                        <input type={"text"} className={'address_input'}
+                        <input type={"text"} className={'address_input'} required={true}
                                placeholder={'адрес доставки'} id={'address'}
                                onChange={(e) => setAddress(e.target.value)}/>
+                    </div>
+
+                    <div className={'flex_container_vertical'}>
+                        <label htmlFor={'deliveryTime'}
+                               className={'flex_container_horizontal_item address_label'}>Время</label>
+                        <input type={"text"} className={'address_input'} required={true}
+                               placeholder={'время доставки'} id={'deliveryTime'}
+                               onChange={(e) => setDeliveryTime(e.target.value)}/>
                     </div>
 
                     <div className={'flex_container_horizontal'}>

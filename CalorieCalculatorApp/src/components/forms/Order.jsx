@@ -22,11 +22,15 @@ const Order = ({order}) => {
                     ))}
                 </div>
                 <div className={'ordered_item'}>
-                    Калорийность {calories_sum(order.items)} ккал
+                    Калорийность: {calories_sum(order.items)} ккал
                 </div>
                 <div className={'ordered_item'}>
                     Адрес: {order.address}
+                    <div>
+                        Время: {order.deliveryTime}
+                    </div>
                 </div>
+
 
             </div>
 

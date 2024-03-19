@@ -1,1 +1,3 @@
 # CalorieCalculatorApp
+## MVP
+### Without backend

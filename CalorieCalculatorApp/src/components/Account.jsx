@@ -11,10 +11,12 @@ const Account = ({orders}) => {
                 Мои заказы
             </h2>
             {orders.map((orderItem) =>
-                <Order
-                    order={orderItem}
-                    key={orderItem.id}
-                />)}
+                <div className={'order_container'} key={orderItem.id}>
+                    <Order
+                        order={orderItem}
+                    />
+                </div>
+            )}
         </>
     );
 };
