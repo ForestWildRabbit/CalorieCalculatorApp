@@ -6,12 +6,17 @@ import Account from "./components/Account.jsx";
 import Basket from "./components/Basket.jsx";
 import {useState} from "react";
 import HelpForm from "./components/forms/HelpForm.jsx";
+import {personal_data} from "./components/food-items/food-items.js";
 
 function App() {
 
     const [selectedFoodItems, setSelectedFoodItems] = useState([]);
 
     const [orders, setOrders] = useState([]);
+
+    const [personalData, setPersonalData] = useState(localStorage?.personalData
+        ? JSON.parse(localStorage.personalData)
+        : personal_data);
 
     return (
         <>
@@ -30,7 +35,9 @@ function App() {
 
                     <Route path="/help" element={<HelpForm/>}></Route>
 
-                    <Route path="/account" element={<Account orders={orders}/>}></Route>
+                    <Route path="/account"
+                           element={<Account orders={orders} personalData={personalData}
+                                             setPersonalData={setPersonalData}/>}></Route>
                 </Routes>
             </BrowserRouter>
         </>
