@@ -15,19 +15,7 @@ const RegisterForm = ({personalData, setPersonalData}) => {
             }
         )
     }
-    const handleOnChangePreference = (e) => {
-        setPersonalData(
-            {...personalData,
-                preferences: {
-                    ...personalData.preferences,
-                    [e.target.name]:{
-                        ...personalData.preferences[e.target.name],
-                        selected: e.target.checked,
-                    }
-                }
-            },
-        )
-    }
+
 
     return (
         <div className={'register_form_container'}>
@@ -43,38 +31,7 @@ const RegisterForm = ({personalData, setPersonalData}) => {
                            onChange={handleOnChangeAccountData} value={personalData.phone ? personalData.phone : ''}>
                     </input>
                 </div>
-                <label className={'address_label'}>Предпочтения</label>
 
-                <div className={'flex_container_horizontal_item checkbox_container'}>
-                    <input type="checkbox" name="meat" onChange={handleOnChangePreference}
-                           checked={personalData.preferences.meat.selected}
-                    />
-                    <label>Мясо</label>
-                </div>
-                <div className={'flex_container_horizontal_item checkbox_container'}>
-                    <input type="checkbox" name="fish" onChange={handleOnChangePreference}
-                           checked={personalData.preferences.fish.selected}
-                    />
-                    <label>Рыба</label>
-                </div>
-                <div className={'flex_container_horizontal_item checkbox_container'}>
-                    <input type="checkbox" name="vegetarian" onChange={handleOnChangePreference}
-                           checked={personalData.preferences.vegetarian.selected}
-                    />
-                    <label>Вегетарианские блюда</label>
-                </div>
-                <div className={'flex_container_horizontal_item checkbox_container'}>
-                    <input type="checkbox" name="soups" onChange={handleOnChangePreference}
-                           checked={personalData.preferences.soups.selected}
-                    />
-                    <label>Супы</label>
-                </div>
-                <div className={'flex_container_horizontal_item checkbox_container'}>
-                    <input type="checkbox" name="salads" onChange={handleOnChangePreference}
-                           checked={personalData.preferences.salads.selected}
-                    />
-                    <label>Салаты</label>
-                </div>
                 <div className={'flex_container_horizontal_item'}>
                     <input type={"submit"} className={'order_button'} value={'Сохранить'}>
 
