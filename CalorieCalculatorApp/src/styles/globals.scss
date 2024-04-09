@@ -166,6 +166,14 @@ a, .link{
     }
 }
 
+.button-add-template-to-basket{
+    margin-top: 4px;
+    transition: 0.4s;
+    &:active{
+        opacity: 0.6;
+    }
+}
+
 .home_container{
     display: flex;
     flex-direction: row;
@@ -272,3 +280,24 @@ input[type='checkbox']{
 .checkbox_container{
     align-self: flex-start;
 }
+
+.save_calories_result{
+    margin-top: 16px;
+}
+
+.select_payment{
+    min-width: 312px;
+    margin-top: 8px;
+    font-size: $form_font-size + 2px;
+}
+
+.select_payment_item{
+    padding: 4px 32px 4px 32px;
+    font-size: $form_font-size;
+}
+
+.select_payment_label{
+    font-size: $form_font-size + 4px;
+    margin-top: 8px;
+}
+

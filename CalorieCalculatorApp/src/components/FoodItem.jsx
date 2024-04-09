@@ -9,7 +9,7 @@ const createAddToBasketLabel = (x) => {
         return `Добавлено в корзину (${x})`
     }
 }
-const FoodItem = ({foodItem, selectedFoodItems, setSelectedFoodItems}) => {
+const FoodItem = ({foodItem, setSelectedFoodItems}) => {
 
     const [addToBasketLabel, setAddToBasketLabel] = useState(' ');
     const [itemCount, setItemCount] = useState(1);
@@ -34,7 +34,7 @@ const FoodItem = ({foodItem, selectedFoodItems, setSelectedFoodItems}) => {
                 </div>
                 <div className={'food-info'}>
                     <div>{foodItem.name}</div>
-                    <div>Калорийность: {foodItem.calories}ккал</div>
+                    <div>Калорийность: {foodItem.calories} ккал</div>
                     <div>
                         <button className={'flex_container_horizontal button-add-to-basket'}
                                 onClick={() => handleAddToBasket()}>
