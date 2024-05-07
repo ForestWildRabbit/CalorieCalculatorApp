@@ -53,7 +53,25 @@ const Basket = ({selectedFoodItems, setSelectedFoodItems, orders, setOrders}) =>
                                onChange={(e) => setDeliveryTime(e.target.value)}/>
                     </div>
 
-                    <div className={'flex_container_horizontal'}>
+                    <div className={'flex_container_vertical'}>
+                        <label htmlFor={'promo'}
+                               className={'flex_container_horizontal_item address_label'}>Промокод</label>
+                        <input type={"text"} className={'address_input'}
+                               placeholder={'промокод (при наличии)'} id={'promo'}/>
+                    </div>
+
+                    <div>
+                        <div className={'select_payment_label'}>
+                            Выберите способ оплаты заказа
+                        </div>
+                        <select className={'select_payment'}>
+                            <option className={'select_payment_item'}>Оплата наличными курьеру</option>
+                            <option className={'select_payment_item'}>Оплата онлайн на сайте</option>
+                        </select>
+                    </div>
+
+
+                    <div className={'flex_container_horizontal'} style={{marginTop: '12px'}}>
                         <input type={'submit'} className={'order_button'} value={'Заказать'}
                                onClick={makeOrder}/>
                     </div>

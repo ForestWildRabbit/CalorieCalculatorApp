@@ -13,6 +13,8 @@ const CalculatorForm = ({
                 ...calculatorResult,
                 calories: AMR,
         }));
+        localStorage.setItem('calories',
+            JSON.stringify(Math.floor(AMR)));
     }
 
     const handleOnChangeGender = (e) => {
