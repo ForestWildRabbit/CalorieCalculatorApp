@@ -33,7 +33,10 @@ const Home = ({selectedFoodItems, setSelectedFoodItems}) => {
                     <div>
                         <h2>Комплекты питания</h2>
                         {foodItemsTemplates.map((item) =>
-                            <FoodItemTemplate foodItemTemplate={item} setSelectedFoodItems={setSelectedFoodItems}/>)}
+                            <FoodItemTemplate foodItemTemplate={item}
+                                              setSelectedFoodItems={setSelectedFoodItems}
+                                              key={item.id}
+                            />)}
                     </div>
                 </div>
 
@@ -48,20 +51,18 @@ const Home = ({selectedFoodItems, setSelectedFoodItems}) => {
                         className={'calorie_result'}>{Math.floor(calculatorResult.calories)}</span>
                     </div>
 
-                    {calculatorResult?.calories &&
-                        (
-                            <div className={'calorie_result'} style={{marginTop: '12px'}}>
-                                Мы рекомендуем вам <b>{suggestTemplate(calculatorResult.calories).name}</b>
-                            </div>
-                        )
+                    {calculatorResult?.calories ?
+
+                        <div className={'calorie_result'} style={{marginTop: '12px'}}>
+                            Мы рекомендуем вам <b>{suggestTemplate(calculatorResult.calories).name}</b>
+                        </div>
+                        :
+                        <div className={'calorie_result_default_text'}>
+                            Для рекомендации комплекта рассчитайте суточную норму калорий
+                        </div>
                     }
                 </div>
-
-
-
-
             </div>
-
 
         </>
     );

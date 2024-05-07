@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import Header from "./Header.jsx";
 import SelectedFoodItem from "./SelectedFoodItem.jsx";
+import {useNavigate} from "react-router-dom";
 
 const Basket = ({selectedFoodItems, setSelectedFoodItems, orders, setOrders}) => {
     const [ordered, setOrdered] = useState(false);
     const [address, setAddress] = useState('');
     const [deliveryTime, setDeliveryTime] = useState('');
+    const navigate = useNavigate();
 
     const makeOrder = e => {
         e.preventDefault();
@@ -20,6 +22,7 @@ const Basket = ({selectedFoodItems, setSelectedFoodItems, orders, setOrders}) =>
             },
         ]);
         setTimeout(setSelectedFoodItems, 4000, []);   // clear basket after making order
+        setTimeout(() => navigate('/account'), 8000);  // to account
     }
     return (
         <>

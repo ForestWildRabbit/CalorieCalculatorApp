@@ -47,6 +47,11 @@ input[type='text'].calculator, input[type='submit'].calculator{
     }
 
 }
+input[type='submit']{
+    &:hover{
+        cursor: pointer;
+    }
+}
 
 input[type='submit'].calculator{
     min-width: 200px;
@@ -299,5 +304,10 @@ input[type='checkbox']{
 .select_payment_label{
     font-size: $form_font-size + 4px;
     margin-top: 8px;
+}
+
+.calorie_result_default_text{
+    margin-top: 8px;
+    font-size: $form_font-size;
 }
 
