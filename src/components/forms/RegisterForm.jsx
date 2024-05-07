@@ -1,9 +1,11 @@
+import React, {useState} from "react";
 
 const RegisterForm = ({personalData, setPersonalData}) => {
-
+    const [successfulRegister, setSuccessfulRegister] = useState(false);
     const handleOnSubmitRegisterForm = (e) => {
         e.preventDefault();
         localStorage.setItem('personalData', JSON.stringify(personalData));
+        setSuccessfulRegister(true);
         console.log(personalData);
     }
 
@@ -37,6 +39,9 @@ const RegisterForm = ({personalData, setPersonalData}) => {
 
                     </input>
                 </div>
+                {successfulRegister &&
+                    <div className={'success_order'}>Данные сохранены</div>
+                }
             </form>
         </div>
     );
