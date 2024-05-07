@@ -28,7 +28,7 @@ const Account = ({orders, personalData, setPersonalData}) => {
             <h2>
                 Мои заказы
             </h2>
-            {orders.map((orderItem) =>
+            {orders.toSorted((order1, order2) => order2.id - order1.id).map((orderItem) =>
                 <div className={'order_container'} key={orderItem.id}>
                     <Order
                         order={orderItem}
