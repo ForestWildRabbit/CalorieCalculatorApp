@@ -6,6 +6,19 @@ $form_text_color: #DDDDDD;
     border: 4px solid $border_color;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
 body{
     padding: 0;
     margin: 0;
@@ -24,6 +37,12 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+button{
+    &:active{
+        background-color: #111111;
+    }
 }
 
 input[type='text'].calculator, input[type='submit'].calculator{
@@ -47,6 +66,7 @@ input[type='text'].calculator, input[type='submit'].calculator{
     }
 
 }
+
 input[type='submit']{
     &:hover{
         cursor: pointer;
@@ -237,7 +257,7 @@ a, .link{
 .success_add_to_basket{
     font-weight: bold;
     text-align: center;
-    color: #35c700;
+    color: #33AA33;
 }
 
 .ordered_item{
@@ -315,3 +335,91 @@ form.order_form{
     padding: 8px 16px 8px 16px;
 }
 
+.calorie_result_button_container{
+    margin-top: 8px;
+}
+
+.credit_card{
+    background-color: #33AA33;
+    box-shadow: 0 0 4px 0 #33AA33AA;
+    border-radius: 32px;
+    margin: 12px 0 8px 0;
+    max-width: 364px;
+    min-width: 328px;
+    min-height: 184px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.credit_card_show_item{
+    min-width: 80px;
+    min-height: 24px;
+    margin: 0 8px 0 8px;
+    font-size: $form-font-size + 2px;
+}
+
+.credit_card_container{
+    margin-top: 16px;
+}
+
+.credit_card_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.credit_card_form_item{
+    margin: 0 16px 0 16px;
+}
+
+input[type='text'], input[type='password'].credit_card_input{
+    margin-top: 4px;
+    font-size: $form-font-size;
+    padding: 4px 4px 4px 4px;
+    border-radius: 4px;
+}
+
+.credit_card_form_label{
+    font-size: $form-font-size;
+}
+
+.credit_card_input_left_column{
+    max-width: 180px;
+    text-align: center;
+}
+
+.credit_card_input_right_column{
+    max-width: 48px;
+    text-align: center;
+}
+
+#credit_card_number_show{
+    font-size: $form-font-size + 8px;
+    font-weight: bold;
+}
+
+.credit_card_show_label{
+    color: #111111;
+    text-shadow: 0 0 2px #33AA33AA;
+}
+
+input::-ms-reveal, input::-ms-clear{
+    display: none;
+}
+
+.credit_card_form_button{
+    margin: 0 32px 0 32px;
+}
+
+.credit_card_form_button_container{
+    margin-top: 8px;
+}
+
+.payment_button{
+    background-color: #33AA33;
+
+    &:active{
+        background-color: #66CC66;
+    }
+}

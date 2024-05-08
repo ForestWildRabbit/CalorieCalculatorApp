@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import CalculatorForm from "./forms/CalculatorForm/CalculatorForm.jsx";
 import Header from "./Header.jsx";
-import {foodItems, foodItemsTemplates, suggestTemplate} from "./food-items/food-items.js";
-import FoodItem from "./FoodItem.jsx";
+import {foodItemsTemplates, suggestTemplate} from "./food-items/food-items.js";
 import FoodItemTemplate from "./FoodItemTemplate.jsx";
 
 const Home = ({selectedFoodItems, setSelectedFoodItems}) => {
@@ -18,10 +17,14 @@ const Home = ({selectedFoodItems, setSelectedFoodItems}) => {
         calories: 0,
     });
 
-    console.log(foodItemsTemplates);
+    const [successfulSave, setSuccessfulSave] = useState(false);
 
 
-
+    const onClickSaveCaloriesResult = () => {
+        localStorage.setItem('calories',
+            JSON.stringify(Math.floor(calculatorResult.calories)));
+        setSuccessfulSave(true);
+    }
 
 
     return (
@@ -50,6 +53,19 @@ const Home = ({selectedFoodItems, setSelectedFoodItems}) => {
                         Суточная норма калорий = <span
                         className={'calorie_result'}>{Math.floor(calculatorResult.calories)}</span>
                     </div>
+
+                    <div className={'calorie_result_button_container'}>
+                        <button className={'flex_container_horizontal button-add-template-to-basket'}
+                                onClick={onClickSaveCaloriesResult}>
+                            Сохранить результат
+                        </button>
+                    </div>
+                    {successfulSave &&
+                    <div className={'success_add_to_basket'}>
+                        Результат сохранен
+                    </div>
+                    }
+
 
                     {calculatorResult?.calories ?
 

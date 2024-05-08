@@ -1,10 +1,11 @@
 export class FoodItem{
 
-    constructor(id, name, image_url, calories, number= 1,) {
+    constructor(id, name, image_url, calories, price, number= 1,) {
         this.id = id;
         this.name = name;
         this.image_url = image_url;
         this.calories = calories;
+        this.price = price;
         this.number = number;
     }
 }
@@ -15,25 +16,34 @@ export class FoodItemTemplate{
         this.id = id;
         this.name = name;
         this.foodItems = foodItems;
-        this.calories = this.calculate_calories();
-    }
-
-    calculate_calories(){
-        let calories = 0;
-        for (let foodItem of this.foodItems){
-            calories += foodItem.calories;
-        }
-        return calories;
+        this.calories = calculate_calories(this.foodItems);
+        this.price = calculate_price(this.foodItems);
     }
 }
 
+export const calculate_price = foodItems => {
+    let price = 0;
+    for (let foodItem of foodItems){
+        price += foodItem.price;
+    }
+    return price;
+}
+
+export const calculate_calories = foodItems => {
+    let calories = 0;
+    for (let foodItem of foodItems){
+        calories += foodItem.calories;
+    }
+    return calories;
+}
+
 export const foodItems = [
-    new FoodItem(1,'Пюре с котлетами', 'food-potato.PNG', 450),
-    new FoodItem(2,'Семга на пару с овощами', 'steamed-fish-with-vegetables.PNG', 350),
-    new FoodItem(3,'Жареные сосиски с овощами', 'sausages-with-vegetables.PNG', 450),
-    new FoodItem(4,'Салат Оливье', 'olivier-salad.webp', 280),
-    new FoodItem(5,'Салат Цезарь', 'caesar-salad.webp', 340),
-    new FoodItem(6,'Клюквенный морс', 'cranberry-juice.jfif', 220),
+    new FoodItem(1,'Пюре с котлетами', 'food-potato.PNG', 450, 250),
+    new FoodItem(2,'Семга на пару с овощами', 'steamed-fish-with-vegetables.PNG', 350, 500),
+    new FoodItem(3,'Жареные сосиски с овощами', 'sausages-with-vegetables.PNG', 450, 250),
+    new FoodItem(4,'Салат Оливье', 'olivier-salad.webp', 280, 250),
+    new FoodItem(5,'Салат Цезарь', 'caesar-salad.webp', 340, 350),
+    new FoodItem(6,'Клюквенный морс', 'cranberry-juice.jfif', 220, 400),
 ]
 
 export const foodItemsTemplates = [
@@ -66,7 +76,28 @@ export const suggestTemplate = calculated_calories => {
     return suggestedTemplate;
 }
 
+export const promocodes = [
+    {title: 'mvp10', coefficient: 0.9, discount: '-10%'},
+    {title: 'mvp20', coefficient: 0.8, discount: '-20%'},
+    {title: 'mvp30', coefficient: 0.7, discount: '-30%'},
+    {title: 'mvp50', coefficient: 0.5, discount: '-50%'},
+]
+
+export const get_coefficient_discount = promocodeTitle => {
+    for (let promoItem of promocodes){
+        if (promoItem.title === promocodeTitle){
+            return promoItem.coefficient;
+        }
+    }
+    return 1;  // no discount
+}
+
 export const personal_data = {
     name: undefined,
     phone: undefined,
+    address: undefined,
+    cardholder: undefined,
+    cardNumber: undefined,
+    cardExpiration: undefined,
+    CVV: undefined,
 }

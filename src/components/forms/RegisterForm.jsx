@@ -25,17 +25,26 @@ const RegisterForm = ({personalData, setPersonalData}) => {
                 <label className={'address_label'}>Персональные данные</label>
                 <div className={'flex_container_horizontal_item'}>
                     <input type={"text"} className={'address_input'} name={'name'} placeholder={'Имя'}
-                           onChange={handleOnChangeAccountData} value={personalData.name ? personalData.name : ''}>
+                           onChange={handleOnChangeAccountData}
+                           value={personalData.name ? personalData.name : ''}>
                     </input>
                 </div>
                 <div className={'flex_container_horizontal_item'}>
                     <input type={"text"} className={'address_input'} name={'phone'} placeholder={'Телефон'}
-                           onChange={handleOnChangeAccountData} value={personalData.phone ? personalData.phone : ''}>
+                           onChange={handleOnChangeAccountData}
+                           value={personalData.phone ? personalData.phone : ''}>
                     </input>
                 </div>
 
                 <div className={'flex_container_horizontal_item'}>
-                    <input type={"submit"} className={'order_button'} value={'Сохранить'}>
+                    <input type={"text"} className={'address_input'} name={'address'} placeholder={'Адрес'}
+                           onChange={handleOnChangeAccountData}
+                           value={personalData.address ? personalData.address : ''}>
+                    </input>
+                </div>
+
+                <div className={'flex_container_horizontal_item'}>
+                    <input type={"submit"} className={'order_button'} value={'Создать аккаунт'}>
 
                     </input>
                 </div>
