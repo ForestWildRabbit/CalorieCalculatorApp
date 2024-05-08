@@ -16,7 +16,8 @@ const SelectedFoodItem = ({selectedFoodItem, selectedFoodItems, setSelectedFoodI
                 </div>
                 <div className={'food-info'}>
                     <div>{selectedFoodItem.name}</div>
-                    <div>Калорийность: {selectedFoodItem.calories}ккал</div>
+                    <div>Калорийность: {selectedFoodItem.calories} ккал</div>
+                    <div>Стоимость: {selectedFoodItem.price}₽</div>
                     <div>
                         <button className={'flex_container_horizontal button-add-to-basket'}
                                 onClick={() => handleDeleteFromBasket()}>

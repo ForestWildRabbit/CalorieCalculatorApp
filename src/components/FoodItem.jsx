@@ -22,7 +22,7 @@ const FoodItem = ({foodItem, setSelectedFoodItems}) => {
         setSelectedFoodItems(selectedFoodItems => ([
             ...selectedFoodItems,
             new FoodItemClass(selectedFoodItems.length + 1,
-                foodItem.name, foodItem.image_url, foodItem.calories),
+                foodItem.name, foodItem.image_url, foodItem.calories, foodItem.price),
         ]));
     }
 
@@ -35,6 +35,7 @@ const FoodItem = ({foodItem, setSelectedFoodItems}) => {
                 <div className={'food-info'}>
                     <div>{foodItem.name}</div>
                     <div>Калорийность: {foodItem.calories} ккал</div>
+                    <div>Стоимость: {foodItem.price}₽</div>
                     <div>
                         <button className={'flex_container_horizontal button-add-to-basket'}
                                 onClick={() => handleAddToBasket()}>

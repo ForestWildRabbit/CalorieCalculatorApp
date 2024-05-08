@@ -7,6 +7,7 @@ import Basket from "./components/Basket.jsx";
 import {useEffect, useState} from "react";
 import HelpForm from "./components/forms/HelpForm.jsx";
 import {personal_data} from "./components/food-items/food-items.js";
+import ECardForm from "./components/forms/ECardForm.jsx";
 
 function App() {
 
@@ -15,6 +16,8 @@ function App() {
 
     const [orders, setOrders] = useState(
         localStorage?.orders ? JSON.parse(localStorage.orders) : []);
+
+    const [currentOrder, setCurrentOrder] = useState({});
 
     const [personalData, setPersonalData] = useState(localStorage?.personalData
         ? JSON.parse(localStorage.personalData)
@@ -27,8 +30,11 @@ function App() {
         if (orders){
             localStorage.setItem('orders', JSON.stringify(orders));
         }
+        if (personalData){
+            localStorage.setItem('personalData', JSON.stringify(personalData));
+        }
 
-    }, [selectedFoodItems, orders])
+    }, [selectedFoodItems, orders, personalData])
 
 
 
@@ -43,7 +49,7 @@ function App() {
 
                     <Route path="/basket" element={
                         <Basket selectedFoodItems={selectedFoodItems} setSelectedFoodItems={setSelectedFoodItems}
-                        orders={orders} setOrders={setOrders}/>}>
+                        orders={orders} setOrders={setOrders} setCurrentOrder={setCurrentOrder}/>}>
 
                     </Route>
 
@@ -52,6 +58,12 @@ function App() {
                     <Route path="/account"
                            element={<Account orders={orders} personalData={personalData}
                                              setPersonalData={setPersonalData}/>}></Route>
+
+                    <Route path="/payment" element={
+                        <ECardForm personalData={personalData} setPersonalData={setPersonalData}
+                                   currentOrder={currentOrder} setOrders={setOrders}
+                                   setSelectedFoodItems={setSelectedFoodItems}/>}>
+                    </Route>
                 </Routes>
             </BrowserRouter>
         </>
